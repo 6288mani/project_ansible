@@ -13,4 +13,4 @@
          src: /root/nexus-2.14.4-03-bundle.zip
          dest: /root/
          remote_src: yes   
-     - shell: sed -i 's/#RUN_AS_USER=/RUN_AS_USER=root/g' nexus-2.14.4-03/bin/nexus
+     - shell: sed -i 's/#RUN_AS_USER=/RUN_AS_USER=root/g' root/nexus-2.14.4-03/bin/nexus
