@@ -1,0 +1,21 @@
+---
+ - hosts: all
+   become: true
+   gather_facts: True
+   tasks:
+     - yum:
+         name: [git,java,wget,unzip]
+         state: installed     
+     - get_url:
+         url: https://download.sonatype.com/nexus/oss/nexus-2.14.4-03-bundle.zip
+         dest: /root/
+     - unarchive:
+         src: /root/nexus-2.14.4-03-bundle.zip
+         dest: /root/
+         remote_src: yes   
+     - name: copy nexus file
+       copy:
+         src: /root/nexus
+         dest: /root/
+         remote_src: no
+     - shell: mv /root/nexus /root/nexus-2.14.4-03/bin/nexus
